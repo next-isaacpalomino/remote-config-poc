@@ -15,9 +15,6 @@ import { connect } from 'pwa-helpers/connect-mixin.js';
 // This element is connected to the Redux store.
 import { store } from '../store.js';
 
-// These are the actions needed by this element.
-import { checkout } from '../actions/shop.js';
-
 // We are lazy loading its reducer.
 import shop from '../reducers/shop.js';
 store.addReducers({
@@ -35,7 +32,7 @@ import { ButtonSharedStyles } from './button-shared-styles.js';
 class MyView3 extends connect(store)(PageViewElement) {
   static get properties() {
     return {
-      // This is the data from the store.
+      already: {type: Boolean}
     };
   }
 
@@ -44,7 +41,12 @@ class MyView3 extends connect(store)(PageViewElement) {
       SharedStyles,
       ButtonSharedStyles,
       css`
-
+      .feature-text {
+        text-align: center;
+        padding: 0.5rem;
+        background-color:blue;
+        color: #fff;
+      }
       `
     ];
   }
@@ -52,10 +54,27 @@ class MyView3 extends connect(store)(PageViewElement) {
   render() {
     return html`
       <section>
-        <h2>Test de grupo reducido</h2>
+        <h2>Fecha/Hora</h2>
+        <p>Remote Config permite activar una propiedad en una fecha y hora determinada.
+          Esto es muy útil cuando se quieren mostrar campañas por ejemplo.
+        </p>
+      </section>
+      <section>
+        ${this._renderFeature()}
       </section>
     `;
   }
+
+  _renderFeature() {
+    let result = html``;
+
+    if (this.already) {
+      result = html`<p class="feature-text">Este texto se muestra a partir de una hora configurada en <b>Remote Config</b></p>`;
+    }
+
+    return result;
+  }
+
 }
 
 window.customElements.define('my-view3', MyView3);

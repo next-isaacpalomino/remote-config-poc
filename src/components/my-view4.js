@@ -21,13 +21,35 @@ class MyView4 extends PageViewElement {
     ];
   }
 
+  static get properties() {
+    return {
+      data: {type: Object}
+    };
+  }
+
+  constructor() {
+    super();
+    this.data = {};
+  }
+
   render() {
     return html`
       <section>
         <h2>Paso complejo de datos</h2>
-        <p>This is a text-only page.</p>
-        <p>It doesn't do anything other than display some static text.</p>
+        <p>Remote Config permite, además de pasar valores primitivos, poder enviar estructuras más complejas como Objetos.<br/>
+      En este ejemplo se muestran los valores de un objeto configurado en <b>Remote Config</b></p>
       </section>
+      <section>
+        ${this._showData()}
+      </section>
+    `;
+  }
+
+  _showData() {
+    return html`
+      <ul>
+      ${Object.getOwnPropertyNames(this.data).map(key => html`<li>${key}: ${this.data[key]}</li>`)}
+      </ul>
     `;
   }
 }
