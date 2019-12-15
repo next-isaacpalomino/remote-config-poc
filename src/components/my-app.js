@@ -44,7 +44,7 @@ class MyApp extends connect(store)(LitElement) {
       _snackbarOpened: { type: Boolean },
       _offline: { type: Boolean },
       _remoteConfigProperties: { type: Object },
-      spanish: { type: Boolean }
+      language: { type: String}
     };
   }
 
@@ -195,9 +195,11 @@ class MyApp extends connect(store)(LitElement) {
     ];
   }
 
-  get spanish() {
-    return (this._remoteConfigProperties || {}).spanish;
+  get language() {
+    return (this._remoteConfigProperties || {}).language;
   }
+
+
 
   connectedCallback() {
     super.connectedCallback();
@@ -251,7 +253,7 @@ class MyApp extends connect(store)(LitElement) {
         </my-view1>
         <my-view2
           class="page"
-          ?spanish="${!!this.spanish}"
+          language="${this.language}"
           ?active="${this._page === 'view2'}">
         </my-view2>
         <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>

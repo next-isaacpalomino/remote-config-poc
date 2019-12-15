@@ -15,19 +15,19 @@ class RcRemoteConfig extends LitElement {
 
         remoteConfig.defaultConfig = ({
           showFeature: false,
-          inSpanish: false,
+          language: '',
           inTheMorning: false,
           platform: 'no specified'
         });
 
       remoteConfig.fetchAndActivate().then(() => {
         const showFeature = remoteConfig.getBoolean('showFeature');
-        const spanish = remoteConfig.getBoolean('inSpanish');
+        const language = remoteConfig.getString('language');
         const inTheMorning = remoteConfig.getBoolean('inTheMorning');
         const platform = remoteConfig.getString('platform');
         const values = {
           showFeature: showFeature,
-          spanish: spanish,
+          language: language,
           inTheMorning: inTheMorning,
           platform: platform
         };

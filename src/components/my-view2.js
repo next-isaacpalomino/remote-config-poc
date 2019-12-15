@@ -33,7 +33,7 @@ class MyView2 extends connect(store)(PageViewElement) {
       // This is the data from the store.
       _clicks: { type: Number },
       _value: { type: Number },
-      spanish: {type: Boolean}
+      language: { type: String }
     };
   }
 
@@ -49,6 +49,11 @@ class MyView2 extends connect(store)(PageViewElement) {
         }
       `
     ];
+  }
+
+  constructor() {
+    super();
+    // this.showSpanishFlag = false;
   }
 
   render() {
@@ -67,19 +72,19 @@ class MyView2 extends connect(store)(PageViewElement) {
   _renderSpanish() {
     let result;
 
-    if (this.spanish) {
+    if (this.language === 'spanish') {
       result = html`
-      <div class="spanish-shop">
-        <p><a href="#">Entra a nuestra tienda exclusiva para España</a></p>
-        <img src="/images/logos/spanish_flag.jpg"></img>
-      </div>`;
-    } else {
+        <div class="spanish-shop">
+          <p><a href="#">Entra a nuestra tienda exclusiva para España</a></p>
+          <img src="/images/logos/spanish_flag.jpg"></img>
+        </div>`;
+    } else if (this.language === 'other') {
       result = html`
-      <div class="non-spanish-shop">
-        <p><a href="#">Enter in our exclusive Shop</a></p>
-        <img src="/images/logos/europe_flag.png"></img>
-      </div>
-      `;
+        <div class="non-spanish-shop">
+          <p><a href="#">Enter in our exclusive Shop</a></p>
+          <img src="/images/logos/europe_flag.png"></img>
+        </div>
+        `;
     }
 
     return result;
