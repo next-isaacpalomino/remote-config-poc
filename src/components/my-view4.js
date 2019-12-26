@@ -7,6 +7,7 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
+/*global window*/
 
 import { html } from 'lit-element';
 import { PageViewElement } from './page-view-element.js';
@@ -23,7 +24,7 @@ class MyView4 extends PageViewElement {
 
   static get properties() {
     return {
-      data: {type: Object}
+      data: { type: Object }
     };
   }
 
@@ -38,6 +39,11 @@ class MyView4 extends PageViewElement {
         <h2>Paso complejo de datos</h2>
         <p>Remote Config permite, además de pasar valores primitivos, poder enviar estructuras más complejas como Objetos.<br/>
       En este ejemplo se muestran los valores de un objeto configurado en <b>Remote Config</b></p>
+      <div class="firebase-config">
+        <p><b>La configuración que se ha usado de Remote Config es:</b><br/>
+        Parámetro: complexObject (valor por defecto: {"name":"Pedro Herandez","id":"123456","age":"25","address":"Calle Mayor, 27, Madrid"})
+        </p>
+      </div>
       </section>
       <section>
         ${this._showData()}

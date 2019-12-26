@@ -16,19 +16,19 @@ class RcRemoteConfig extends LitElement {
         remoteConfig.defaultConfig = ({
           showFeature: false,
           language: '',
-          inTheMorning: false,
+          beforeMidnight: false,
           complexObject: {}
         });
 
       remoteConfig.fetchAndActivate().then(() => {
         const showFeature = remoteConfig.getBoolean('showFeature');
         const language = remoteConfig.getString('language');
-        const inTheMorning = remoteConfig.getBoolean('inTheMorning');
+        const beforeMidnight = remoteConfig.getBoolean('beforeMidnight');
         const complexObject = remoteConfig.getValue('complexObject') || {};
         const values = {
           showFeature: showFeature,
           language: language,
-          inTheMorning: inTheMorning,
+          beforeMidnight: beforeMidnight,
           complexObject: JSON.parse(complexObject._value)
         };
 

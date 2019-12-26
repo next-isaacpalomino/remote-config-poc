@@ -49,6 +49,11 @@ class MyView1 extends PageViewElement {
           para ver el grado de aceptación del mismo.
         </p>
         <p>Para este ejemplo, el texto de abajo sólo se mostrará al <b>50% de los usuarios</b>.</p>
+        <div class="firebase-config">
+          <p><b>La configuración que se ha usado de Remote Config es:</b><br/>
+          Parámetro: showFeature (valor por defecto: false):<br/>
+          Condición: Usuario de Percentil Aleatorio (Valor: 50%)</p>
+        </div>
       </section>
       <section>
         ${this._renderFeature()}

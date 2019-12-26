@@ -8,6 +8,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
+/*global window*/
+
 import { LitElement, html, css } from 'lit-element';
 import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings.js';
 import { connect } from 'pwa-helpers/connect-mixin.js';
@@ -45,7 +47,7 @@ class MyApp extends connect(store)(LitElement) {
       _offline: { type: Boolean },
       _remoteConfigProperties: { type: Object },
       language: { type: String },
-      inTheMorning: { type: Boolean },
+      beforeMidnight: { type: Boolean },
       complexObject: { type: Object}
     };
   }
@@ -201,8 +203,8 @@ class MyApp extends connect(store)(LitElement) {
     return (this._remoteConfigProperties || {}).language;
   }
 
-  get inTheMorning() {
-    return (this._remoteConfigProperties || {}).inTheMorning;
+  get beforeMidnight() {
+    return (this._remoteConfigProperties || {}).beforeMidnight;
   }
 
   get complexObject() {
@@ -266,7 +268,7 @@ class MyApp extends connect(store)(LitElement) {
         </my-view2>
         <my-view3
           class="page"
-          ?already="${this.inTheMorning}"
+          ?already="${this.beforeMidnight}"
           ?active="${this._page === 'view3'}">
         </my-view3>
         <my-view4

@@ -55,4 +55,12 @@ export const SharedStyles = css`
     font-size: 30px;
     line-height: 64px;
   }
+
+  .firebase-config {
+    background-color: #666;
+    color: #ddd;
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 20px;
+  }
 `;

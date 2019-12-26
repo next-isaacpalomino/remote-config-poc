@@ -58,6 +58,11 @@ class MyView3 extends connect(store)(PageViewElement) {
         <p>Remote Config permite activar una propiedad en una fecha y hora determinada.
           Esto es muy útil cuando se quieren mostrar campañas por ejemplo.
         </p>
+        <div class="firebase-config">
+          <p><b>La configuración que se ha usado de Remote Config es:</b><br/>
+          Parámetro: beforeMidnight (valor por defecto: other)<br/>
+          Condición: Fecha/Hora (Valor: Después del 31 dic. 2019 23:50:00 Europe/Madrid</p>
+        </div>
       </section>
       <section>
         ${this._renderFeature()}

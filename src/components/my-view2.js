@@ -64,6 +64,11 @@ class MyView2 extends connect(store)(PageViewElement) {
         Asímismo, se podrían adaptar textos, banners, features, etc, a usuarios que usen un idioma en concreto
         <br><br>
         <p>En el ejemplo, se muestran diferentes textos dependiendo de si el usuario tiene configurado el español como idioma o no.</p>
+        <div class="firebase-config">
+          <p><b>La configuración que se ha usado de Remote Config es:</b><br/>
+          Parámetro: language (valor por defecto: other)<br/>
+          Condición: Idioma del dispositivo (Valor: español (España)</p>
+        </div>
         ${this._renderSpanish()}
       </section>
     `;
